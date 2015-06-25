@@ -1,0 +1,34 @@
+%h2 Appliances List Page
+.center{:style =>'left-padding:10px;text-align:center'}
+  = current_user.email | 
+  = link_to "Sign Out", destroy_user_session_path, :method => :delete
+%br
+= link_to "Reachable Targets", appliances_target_path
+%br
+= will_paginate @appliances
+%table.table.table-striped
+  %tr
+    %th
+      = 'ID'
+    %th
+      = 'Name'
+    %th
+      = 'Customer'
+    %th
+      = 'Targets'
+  - @appliances.each do |item|
+    %tr
+      %td
+        = item.id
+      %td
+        = item.name
+      %td
+        = item.customer
+      %td
+        - item.targets.each do |target|
+          = target.hostname
+          -
+          = target.address 
+          |
+
+= will_paginate @appliances

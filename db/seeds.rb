@@ -25,3 +25,8 @@ def create_target(appliance)
 end
 
 APPLIANCES.times {create_appliance}
+
+['registered', 'admin'].each do |role|
+  Role.find_or_create_by({name: role})
+end
+

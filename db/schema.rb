@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140529201158) do
+ActiveRecord::Schema.define(version: 20150624204920) do
 
   create_table "appliances", force: true do |t|
     t.string   "name"
@@ -21,6 +21,19 @@ ActiveRecord::Schema.define(version: 20140529201158) do
   end
 
   add_index "appliances", ["name"], name: "index_appliances_on_name", unique: true
+
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "target_statics", force: true do |t|
+    t.integer  "reachable",   default: 0
+    t.integer  "unreachable", default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "targets", force: true do |t|
     t.integer  "appliance_id"
@@ -32,5 +45,25 @@ ActiveRecord::Schema.define(version: 20140529201158) do
 
   add_index "targets", ["appliance_id"], name: "index_targets_on_appliance_id"
   add_index "targets", ["hostname"], name: "index_targets_on_hostname", unique: true
+
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "role_id"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["role_id"], name: "index_users_on_role_id"
 
 end
