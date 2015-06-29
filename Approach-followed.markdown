@@ -6,11 +6,11 @@ Overview of Application:
 3. On the targets listing page, you can see the status of each target agaist it.
 4. The corresponding appliace has a hyper-link which will take you to the appliance details page.
 
-```
+` ``
 ```
 Approach followed
 1. Implemented a rake task(rake targets:monitor) which will keep updating the status (is_alive) for each of the target in the DB(targets table)
-This rake task would be then scheduled to run on a regular intervals to keep checking for the target status
+I have scheduled this rake task using 'whenever' gem to run once n a day, so as to get updated data. Sheduling can beed seen at config/schedule.rb.
 2. The Pie-chart is prepared based on the data gathered from the above rake task, which gives us the count of total reachable and/or unreachable targets.
 3. Gems Used:
   a. Devise : For user authentication
@@ -30,7 +30,7 @@ NOTE:
 ```
 Future Enhancements:
 ```
-Due to the time constraint I couldn't follow a few things, which I would like to include in this application further. I have listed those down here.
+Listing down a few things which I would like to include in this application further. 
 1. Add seaching a target, based on  name/address.
 2. Sort the targets per-columns OR sort based on the status.
 ```
