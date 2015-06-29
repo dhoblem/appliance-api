@@ -21,7 +21,8 @@ end
 def create_target(appliance)
   Target.create! appliance: appliance,
                  hostname:  randomize(Faker::Internet.domain_name),
-                 address:   Faker::Internet.ip_v4_address
+                 address:   Faker::Internet.ip_v4_address,
+                 is_alive: random_boolean = [true,false]
 end
 
 APPLIANCES.times {create_appliance}

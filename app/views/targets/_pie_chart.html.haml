@@ -1,0 +1,8 @@
+%h2 Reachable Targets Analysis (Pie chart)
+
+=javascript_include_tag "//www.google.com/jsapi", "chartkick"
+
+- if !@target_reachable.nil?
+  = pie_chart({"Targets Reachable" => @target_reachable, "Targets Un-Reachable" => @target_unreachable})
+- else
+  = pie_chart({"Targets Reachable" => 1400 , "Targets Un-Reachable" => 600})

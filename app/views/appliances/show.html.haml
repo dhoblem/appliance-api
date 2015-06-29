@@ -1,0 +1,33 @@
+%h2 Appliances List Page
+//.center{:style =>'left-padding:10px;text-align:center'}
+.center-div
+  = current_user.email | 
+  = link_to "Sign Out", destroy_user_session_path, :method => :delete
+%br
+%table.table.table-striped
+  %tr
+    %th
+      = 'ID'
+    %td
+      = @appliance.id
+  %tr
+    %th
+      = 'Name'
+    %td
+      = @appliance.name
+  %tr
+    %th
+      = 'Customer'
+    %td
+      = @appliance.customer
+  %tr
+    %th
+      = 'Targets'
+    %td
+      - @appliance.targets.each do |target|
+        = target.hostname
+        -
+        = target.address 
+        |
+
+= link_to "Back", targets_path

@@ -5,8 +5,8 @@ def index
   @appliances = Appliance.all.paginate(:page => params[:page], :per_page => 30)
 end
 
-def pingable_targets
-  @target = TargetStatics.first
+def show
+  @appliance = Appliance.where(:id=> params[:id]).first
 end
 
 private
