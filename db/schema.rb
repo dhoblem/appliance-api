@@ -28,13 +28,6 @@ ActiveRecord::Schema.define(version: 20150629104617) do
     t.datetime "updated_at"
   end
 
-  create_table "target_statics", force: true do |t|
-    t.integer  "reachable",   default: 0
-    t.integer  "unreachable", default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "targets", force: true do |t|
     t.integer  "appliance_id"
     t.string   "hostname"

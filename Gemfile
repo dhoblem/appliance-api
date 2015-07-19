@@ -26,6 +26,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
   gem 'launchy'
+  gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'brakeman', require: false
 end
