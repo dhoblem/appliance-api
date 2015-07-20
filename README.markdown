@@ -3,6 +3,8 @@
 ```
 $ bundle install
 $ rake db:setup
+$ rake db:seed
+$ rake targets:monitor
 $ bundle exec rspec
 $ rails server
 ```

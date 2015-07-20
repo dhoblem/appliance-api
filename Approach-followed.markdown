@@ -36,3 +36,10 @@ Listing down a few things which I would like to include in this application furt
 1. Add seaching a target, based on  name/address.
 2. Sort the targets per-columns OR sort based on the status.
 ```
+
+```
+Assumptions:
+1. Make sure that the 'ping' command is supported on the OS where you would be running this application.
+2. Please note that to see the proper results, the rake task has run and before starting the rails server.
+```
+
